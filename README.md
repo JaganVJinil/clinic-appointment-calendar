@@ -1,4 +1,5 @@
 Clinic Appointment Calendar
+
 The Clinic Appointment Calendar is a responsive, front-end-only React application designed for clinic staff to manage patient appointments efficiently. It includes two views optimized for different devices:
 
  Key Features:
