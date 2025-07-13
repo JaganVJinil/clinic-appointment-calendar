@@ -1,0 +1,193 @@
+
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+  --cell-bg: #f0f0f0;
+  --cell-hover: #e0e0ff;
+  --cell-grey: #fafafa;
+  --appt-bg: #d6eaff;
+  --more-appt: #1976d2;
+  --btn-bg: #1976d2;
+  --btn-text: #fff;
+  --delete-bg: #d32f2f;
+  --delete-hover: #b71c1c;
+  --filter-bg: #ccc;
+  --day-name-bg: #f8f8f8;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --cell-bg: #1e1e1e;
+  --cell-hover: #2c2c54;
+  --cell-grey: #2e2e2e;
+  --appt-bg: #374785;
+  --more-appt: #90caf9;
+  --btn-bg: #3b82f6;
+  --btn-text: #fff;
+  --delete-bg: #e53935;
+  --delete-hover: #c62828;
+  --filter-bg: #444;
+  --day-name-bg: #1e1e1e;
+}
+
+.calendar-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.calendar-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.calendar-header button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 10px;
+}
+
+.calendar-day-name {
+  font-weight: bold;
+  text-align: center;
+  padding: 8px 0;
+  background-color: var(--day-name-bg);
+  color: var(--text-color);
+  border-radius: 4px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-cell {
+  min-height: 100px;
+  background: var(--cell-bg);
+  border-radius: 8px;
+  padding: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+  color: var(--text-color);
+}
+
+.calendar-cell:hover {
+  background-color: var(--cell-hover);
+}
+
+.calendar-cell.greyed {
+  background-color: var(--cell-grey);
+  color: #aaa;
+  pointer-events: none;
+}
+
+.day-number {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.appt-list {
+  margin-top: 4px;
+}
+
+.appt-item {
+  font-size: 12px;
+  margin-bottom: 2px;
+  color: var(--text-color);
+  background-color: var(--appt-bg);
+  padding: 2px 4px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more-appts {
+  font-size: 12px;
+  color: var(--more-appt);
+  margin-top: 2px;
+}
+
+/* Delete button */
+.delete-btn {
+  margin-left: 6px;
+  background-color: var(--delete-bg);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: var(--delete-hover);
+}
+
+/* Filter controls */
+.filters select {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: var(--filter-bg);
+  color: var(--text-color);
+}
+
+.filters button {
+  background-color: var(--filter-bg);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .calendar-container {
+    padding: 10px;
+  }
+
+  .calendar-header h2 {
+    font-size: 20px;
+  }
+
+  .calendar-cell {
+    min-height: 80px;
+    font-size: 12px;
+  }
+
+  .appt-item {
+    font-size: 11px;
+  }
+
+  .delete-btn {
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 2px 6px;
+  }
+}

@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .calendar-cell {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+body.dark-mode .calendar-cell.grey,
+body.dark-mode .calendar-cell.greyed {
+  background-color: #333;
+  color: #aaa;
+}
+
+body.dark-mode .filters select,
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode button {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border-color: #444;
+}
+
+body.dark-mode .modal-overlay .form-container {
+  background-color: #222;
+}
+
