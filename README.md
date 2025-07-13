@@ -1,74 +1,43 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+Clinic Appointment Calendar
+The Clinic Appointment Calendar is a responsive, front-end-only React application designed for clinic staff to manage patient appointments efficiently. It includes two views optimized for different devices:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ Key Features:
+Login Page: A clean and modern login UI (mock login, no backend) with a gradient background.
 
-## Available Scripts
+Calendar View (Desktop):
 
-In the project directory, you can run:
+Google Calendar–like month grid with days and appointment lists.
 
-### `npm start`
+Ability to add and  delete appointments.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Appointments stored using localStorage for persistence.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Pagination-like layout with clear day separation and hover effects.
 
-### `npm test`
+Day View (Mobile):
+In desktop minimise the screen to see the day view.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Mobile-friendly interface that shows one day at a time.
 
-### `npm run build`
+Includes a date picker and vertically stacked appointments.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Dark Mode Toggle: Optional dark mode for accessibility and user preference (disabled on login page).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Appointment Management:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Fields for patient name, doctor, and time.
 
-### `npm run eject`
+View  and delete appointments per day.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+All changes persist using browser localStorage.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Filters & Search (optional): Filter appointments by doctor or patient name.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+⚙️ Technologies Used:
+React with hooks (useState, useEffect)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+React Router for navigation
 
-## Learn More
+CSS for styling and responsiveness
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# clinic-appointment-calendar
->>>>>>> fcf5bb8ee253d0dc5bfea7fab54f41e87b743b76
+LocalStorage for appointment data management
