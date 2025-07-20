@@ -1,9 +1,10 @@
-/* Full page gradient background */
+/* Full-page background image (no gradient) */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #33ece2, #2575fc);
+  /* background: url("/images/calendaredited.jpg") no-repeat center center fixed; */
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -14,10 +15,7 @@ body {
 .login-container {
   width: 100%;
   max-width: 400px;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-right: 60px;
-  padding-left: 60px;
+  padding: 60px;
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -60,7 +58,7 @@ body {
 
 .login-container button {
   padding: 12px;
-  background: linear-gradient(to right, #2575fc, #6a11cb);
+  background: linear-gradient(to right, #0a59e1, #6a11cb);
   color: white;
   font-weight: bold;
   font-size: 15px;

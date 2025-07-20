@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Calendar.css";
 import AppointmentForm from "./AppointmentForm";
 
@@ -11,7 +12,17 @@ const monthNames = [
 ];
 
 const CalendarView = () => {
+  const navigate = useNavigate();
   const today = new Date();
+
+  // Redirect if no token (protect calendar route)
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/calendar", { replace: true });
+    }
+  }, [navigate]);
+
   const [appointments, setAppointments] = useState(
     JSON.parse(localStorage.getItem("appointments") || "[]")
   );
@@ -73,6 +84,11 @@ const CalendarView = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.replace("/"); 
+  };
+
   const renderCalendarCells = () => {
     const cells = [];
 
@@ -106,6 +122,13 @@ const CalendarView = () => {
       );
     }
 
+    const totalCells = startDay + daysInMonth;
+    const paddingCells = 42 - totalCells;
+
+    for (let i = 0; i < paddingCells; i++) {
+      cells.push(<div key={`pad-${i}`} className="calendar-cell greyed" />);
+    }
+
     return cells;
   };
 
@@ -113,8 +136,18 @@ const CalendarView = () => {
   const uniqueDoctors = [...new Set(appointments.map((a) => a.doctor))];
 
   return (
-    <div className="calendar-container">
-      
+    <div
+  className="calendar-container"
+  style={{
+    backgroundImage: 'url("/images/calendaredited.jpg")',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    minHeight: '100vh',
+  }}
+>
+
+      {/* Filters */}
       <div className="filters" style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
         <select value={filterPatient} onChange={(e) => setFilterPatient(e.target.value)}>
           <option value="">All Patients</option>
@@ -136,24 +169,25 @@ const CalendarView = () => {
         )}
       </div>
 
-      
+      {/* Calendar Header */}
       <div className="calendar-header">
         <button onClick={goToPrevMonth}>&lt;</button>
         <h2>{monthNames[currentMonth]} {currentYear}</h2>
         <button onClick={goToNextMonth}>&gt;</button>
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </div>
 
-      
+      {/* Day names */}
       <div className="calendar-days">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
           <div key={day} className="calendar-day-name">{day}</div>
         ))}
       </div>
 
-      
+      {/* Calendar Grid */}
       <div className="calendar-grid">{renderCalendarCells()}</div>
 
-      
+      {/* Modal for Appointments */}
       {showDayAppointments && selectedDate && (
         <div className="modal-overlay">
           <div className="form-container">
@@ -182,10 +216,7 @@ const CalendarView = () => {
             </ul>
             <div className="form-actions">
               <button onClick={() => setShowForm(true)}>+ Add</button>
-              <button
-                onClick={() => setShowDayAppointments(false)}
-                className="cancel-btn"
-              >
+              <button onClick={() => setShowDayAppointments(false)} className="cancel-btn">
                 Close
               </button>
             </div>
@@ -193,7 +224,7 @@ const CalendarView = () => {
         </div>
       )}
 
-      
+      {/* Appointment Form Modal */}
       {showForm && selectedDate && (
         <AppointmentForm
           date={selectedDate}
